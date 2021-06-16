@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.discover.selenium.pfactory.tests.LoginTestFactory" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-06-16T06:16:27" hostname="Sharaths-MacBook-Pro.local" time="7.041">
+  <properties/>
+  <testcase name="loginPageFactory()" classname="com.discover.selenium.pfactory.tests.LoginTestFactory" time="7.041"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 91.0.4472.19 (1bf021f248676a0b2ab3ee0561d83a59e424c23e-refs/branch-heads/4472@{#288}) on port 33245
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+Jun 16, 2021 2:16:32 AM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>

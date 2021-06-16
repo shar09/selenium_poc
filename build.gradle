@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'io.cucumber:cucumber-java:5.6.0'
+    testImplementation 'io.cucumber:cucumber-junit:5.6.0'
+    implementation group: 'info.cukes', name: 'cucumber-core', version: '1.2.6', ext: 'pom'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.4'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-api', version: '3.141.59'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-firefox-driver', version: '3.141.59'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-support', version: '3.141.59'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'html:reports/test-report', '--plugin', 'pretty', '--glue', 'com.discover.cucumber', 'src/test/resources/features']
+        }
+    }
+}
